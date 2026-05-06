@@ -1,32 +1,41 @@
 # Digitara Landing Page
 
-Landing page Digitara yang sudah dipindahkan ke stack Laravel sesuai `LARAVEL_IMPLEMENTATION.md`.
+Landing page Digitara yang sekarang berjalan penuh di stack Laravel, tanpa dependensi React/Vite lama.
 
 ## Stack
 
 - Laravel 11
 - Blade
-- Tailwind CDN
+- Tailwind CSS via CDN
 - Alpine.js
 - Lucide Icons
 
-## Run Locally
+## Menjalankan Project
 
-**Prerequisites:** PHP 8.2+ dan Composer.
+Prasyarat:
+- PHP 8.2+
+- Composer
 
-1. Install dependency PHP:
-   `composer install`
-2. Buat file environment:
-   `copy .env.example .env`
-3. Generate application key:
-   `php artisan key:generate`
-4. Jalankan server:
-   `php artisan serve`
+Langkah:
+1. `composer install`
+2. `copy .env.example .env`
+3. `php artisan key:generate`
+4. `php artisan serve`
 
-Halaman utama tersedia di `http://127.0.0.1:8000`.
+Aplikasi akan tersedia di `http://127.0.0.1:8000`.
 
-## Struktur Utama
+Alternatif command:
+- `composer dev`
+- `composer test`
 
-- `routes/web.php`: data services dan portfolio untuk landing page.
-- `resources/views/welcome.blade.php`: template Blade landing page.
-- `public/index.php`: entrypoint Laravel.
+## Struktur Penting
+
+- `routes/web.php`: data konten landing page dan route homepage.
+- `resources/views/welcome.blade.php`: view utama landing page.
+- `public/brand-assets/LOGO.png`: logo yang dipakai di browser.
+- `brand-assets/`: source asset brand dan referensi desain.
+- `LARAVEL_IMPLEMENTATION.md`: catatan implementasi awal saat migrasi dari desain sebelumnya.
+
+## Catatan
+
+Project ini sengaja memakai asset front-end ringan via CDN karena kebutuhannya hanya landing page statis dengan interaksi kecil. Kalau nanti kita ingin pindah ke pipeline asset Laravel + Vite, strukturnya bisa ditambahkan lagi dengan cukup aman dari basis ini.
