@@ -44,18 +44,18 @@ Route::get('/', function () {
 
     $portfolio = [
         [
-            'name' => 'Nexus Finance',
-            'category' => 'FinTech Platform',
-            'image' => 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800',
+            'name' => 'Sispentra',
+            'category' => 'Accounting System',
+            'image' => asset('brand-assets/sispentra.png'),
         ],
         [
-            'name' => 'Helix Health',
-            'category' => 'Medical CRM',
-            'image' => 'https://images.unsplash.com/photo-1576091160550-217359f49f4c?auto=format&fit=crop&q=80&w=800',
+            'name' => 'Qlinic',
+            'category' => 'Clinic System',
+            'image' => asset('brand-assets/qlinic.png'),
         ],
         [
-            'name' => 'Vantage Logistics',
-            'category' => 'Supply Chain AI',
+            'name' => 'AKMSystem',
+            'category' => 'Enterprise Resource Planning',
             'image' => 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
         ],
     ];
