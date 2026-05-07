@@ -1,28 +1,12 @@
 {
     "version": 2,
-    "framework": null,
     "functions": {
-        "api/index.php": {
-            "runtime": "vercel-php@0.7.1"
-        }
+        "api/index.php": { "runtime": "vercel-php@0.7.1" }
     },
     "routes": [
-        {
-            "src": "/(css|js|images|brand-assets|build)/(.*)",
-            "dest": "/public/$1/$2"
-        },
-        {
-            "src": "/favicon.ico",
-            "dest": "/public/favicon.ico"
-        },
-        {
-            "src": "/robots.txt",
-            "dest": "/public/robots.txt"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
-        }
+        { "src": "/(css|js|images|brand-assets|build)/(.*)", "dest": "/public/$1/$2" },
+        { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
+        { "src": "/(.*)", "dest": "/api/index.php" }
     ],
     "env": {
         "APP_ENV": "production",
@@ -30,8 +14,6 @@
         "VIEW_COMPILED_PATH": "/tmp",
         "CACHE_STORE": "array",
         "SESSION_DRIVER": "cookie",
-        "LOG_CHANNEL": "stderr",
-        "DB_CONNECTION": "sqlite",
-        "DB_DATABASE": ":memory:"
+        "LOG_CHANNEL": "stderr"
     }
 }
