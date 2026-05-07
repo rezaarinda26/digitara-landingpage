@@ -5,6 +5,7 @@
 /storage/framework/sessions/*
 /storage/framework/views/*
 /storage/logs/*
+/bootstrap/cache/*.php
 .env
 .phpunit.result.cache
 phpunit.xml
