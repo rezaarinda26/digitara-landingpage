@@ -341,8 +341,7 @@
                                         class="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-300">{{ $tag }}</span>
                                 @endforeach
                             </div>
-                            <a href="#about"
-                                class="group/link flex items-center gap-2 text-sm font-bold text-brand-light">
+                            <a href="#about" class="group/link flex items-center gap-2 text-sm font-bold text-brand-light">
                                 Discuss Project
                                 <i data-lucide="chevron-right"
                                     class="h-4 w-4 transition-transform group-hover/link:translate-x-1"></i>
@@ -357,33 +356,71 @@
             <div class="mx-auto max-w-7xl px-6">
                 <div class="mx-auto mb-20 max-w-3xl text-center">
                     <div class="mb-4 text-xs font-bold uppercase tracking-widest text-brand">Case Studies</div>
-                    <h2 class="mb-6 text-4xl font-bold text-brand-dark md:text-5xl">Proven Architecture</h2>
+                    <h2 class="mb-6 text-4xl font-bold text-brand-dark md:text-5xl">Engineering Modern Business
+                        Solutions</h2>
                     <p class="text-lg leading-relaxed text-neutral">
-                        Proprietary solutions developed for industry leaders with a focus on geometric scalability.
+                        Designed to improve operational efficiency, scalability, and user experience.
                     </p>
                 </div>
 
-                <div class="grid gap-8 lg:grid-cols-3">
-                    @foreach ($portfolio as $item)
-                        <article
-                            class="group relative h-[500px] overflow-hidden rounded-[32px] border border-brand-soft shadow-lg transition-all hover:shadow-2xl">
-                            <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}"
-                                class="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                                referrerpolicy="no-referrer">
-                            <div
-                                class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-slate-900/95 via-slate-900/40 to-transparent p-10">
-                                <div class="mb-3 text-[10px] font-bold uppercase tracking-[.2em] text-brand-light">
-                                    {{ $item['category'] }}
+                <div class="space-y-32">
+                    @foreach ($portfolio as $index => $item)
+                        <article class="group reveal">
+                            <div class="grid items-center gap-16 lg:grid-cols-2">
+                                {{-- Alternating Image and Text --}}
+                                <div class="{{ $index % 2 === 0 ? 'order-2' : 'order-2 lg:order-1' }}">
+                                    <div class="mb-6 flex items-center gap-2">
+                                        <span class="h-px w-8 bg-brand"></span>
+                                        <span class="text-xs font-bold uppercase tracking-[.3em] text-brand">Case Study
+                                            0{{ $index + 1 }}</span>
+                                    </div>
+                                    <h3 class="mb-6 text-4xl font-bold text-brand-dark lg:text-5xl">
+                                        {{ $item['name'] }}
+                                    </h3>
+                                    <p class="mb-8 text-lg leading-relaxed text-neutral">
+                                        {{ $item['name'] }} dirancang untuk menyederhanakan pencatatan transaksi,
+                                        monitoring operasional, dan pelaporan keuangan dalam satu sistem terintegrasi.
+                                    </p>
+
+                                    <div class="mb-10 flex flex-wrap gap-3">
+                                        @php
+                                            $tags = [
+                                                'Sispentra' => ['Financial Logic', 'Audit Ready', 'High Security'],
+                                                'Qlinic' => ['Patient Management', 'Telemedicine', 'E-Prescription'],
+                                                'AKMSystem' => ['Resource Planning', 'Real-time Analytics', 'Inventory Sync']
+                                            ];
+                                            $currentTags = $tags[$item['name']] ?? ['Custom Solution', 'Cloud Ready', 'Performance'];
+                                        @endphp
+                                        @foreach($currentTags as $tag)
+                                            <span
+                                                class="rounded-full bg-brand/5 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-brand">{{ $tag }}</span>
+                                        @endforeach
+                                    </div>
+
+                                    <a href="#"
+                                        class="group/btn inline-flex items-center gap-3 font-bold text-brand-dark transition-colors hover:text-brand">
+                                        View Case Study
+                                        <span
+                                            class="flex h-12 w-12 items-center justify-center rounded-full border border-brand-soft transition-all duration-300 group-hover/btn:bg-brand group-hover/btn:border-brand group-hover/btn:text-white group-hover/btn:shadow-lg group-hover/btn:shadow-brand/20">
+                                            <i data-lucide="arrow-right"
+                                                class="h-5 w-5 transition-transform group-hover/btn:translate-x-1"></i>
+                                        </span>
+                                    </a>
                                 </div>
-                                <h3 class="mb-6 text-2xl font-bold text-white">{{ $item['name'] }}</h3>
-                                <div
-                                    class="flex translate-y-2 items-center justify-between opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                                    <span class="text-xs font-bold uppercase tracking-wider text-white/60">Explore
-                                        System</span>
-                                    <span
-                                        class="flex h-12 w-12 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white backdrop-blur-md">
-                                        <i data-lucide="external-link" class="h-5 w-5"></i>
-                                    </span>
+
+                                <div class="{{ $index % 2 === 0 ? 'order-1' : 'order-1 lg:order-2' }}">
+                                    <div
+                                        class="relative overflow-hidden rounded-[40px] border border-brand-soft bg-white p-4 shadow-2xl transition-all duration-700 group-hover:border-brand/20 group-hover:shadow-brand/10">
+                                        <div class="relative overflow-hidden rounded-[32px]">
+                                            <div class="aspect-[16/10] overflow-hidden">
+                                                <img src="{{ $item['image'] }}" alt="{{ $item['name'] }}"
+                                                    class="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0">
+                                            </div>
+                                            <div
+                                                class="absolute inset-0 bg-gradient-to-tr from-brand/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </article>
@@ -426,30 +463,57 @@
                 <div class="lg:col-span-1">
                     <div class="mb-6 flex items-center gap-2">
                         <img src="{{ asset('brand-assets/LOGO.png') }}" alt="" class="h-8 w-8 object-contain">
-                        <span class="text-xl font-bold uppercase tracking-tight text-brand-dark">Digitara</span>
+                        <span class="text-xl font-bold tracking-tight text-brand">digitara</span>
                     </div>
                     <p class="mb-8 text-sm leading-relaxed text-neutral">
-                        Leading IT solutions provider specializing in high-end enterprise web systems and secure cloud
-                        infrastructure.
+                        Building scalable digital systems with a focus on precision, performance, and modern business
+                        workflows.
                     </p>
                     <div class="flex gap-4">
-                        @foreach (['github', 'twitter', 'linkedin'] as $social)
-                            <a href="#"
-                                class="flex h-10 w-10 items-center justify-center rounded-full border border-brand-soft bg-white text-neutral transition-all hover:border-brand hover:text-brand"
-                                aria-label="{{ ucfirst($social) }}">
-                                <i data-lucide="{{ $social }}" class="h-5 w-5"></i>
-                            </a>
-                        @endforeach
+                        <!-- Github -->
+                        <a href="#"
+                            class="group flex h-10 w-10 items-center justify-center rounded-full border border-brand-soft bg-white transition-all duration-300 hover:bg-brand hover:border-brand"
+                            aria-label="Github">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="text-brand transition-all duration-300 group-hover:scale-110 group-hover:text-white">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="#"
+                            class="group flex h-10 w-10 items-center justify-center rounded-full border border-brand-soft bg-white transition-all duration-300 hover:bg-brand hover:border-brand"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="text-brand transition-all duration-300 group-hover:scale-110 group-hover:text-white">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <!-- Linkedin -->
+                        <a href="#"
+                            class="group flex h-10 w-10 items-center justify-center rounded-full border border-brand-soft bg-white transition-all duration-300 hover:bg-brand hover:border-brand"
+                            aria-label="Linkedin">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="text-brand transition-all duration-300 group-hover:scale-110 group-hover:text-white">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
                 <div>
                     <h4 class="mb-6 text-xs font-bold uppercase tracking-widest text-brand-dark">Layanan Kami</h4>
                     <ul class="space-y-4 text-sm text-neutral">
-                        <li><a href="#services" class="transition-colors hover:text-brand">Custom Web Systems</a></li>
-                        <li><a href="#services" class="transition-colors hover:text-brand">Cloud Migration</a></li>
-                        <li><a href="#services" class="transition-colors hover:text-brand">Cybersecurity Audit</a></li>
-                        <li><a href="#services" class="transition-colors hover:text-brand">AI Consulting</a></li>
+                        <li><a href="#services" class="transition-colors hover:text-brand">Company Profile Website</a>
+                        </li>
+                        <li><a href="#services" class="transition-colors hover:text-brand">Custom Web System</a></li>
+                        <li><a href="#services" class="transition-colors hover:text-brand">Dashboard & CMS</a></li>
+                        <li><a href="#services" class="transition-colors hover:text-brand">Api Integration</a></li>
                     </ul>
                 </div>
 
@@ -458,8 +522,9 @@
                     <ul class="space-y-4 text-sm text-neutral">
                         <li><a href="#portfolio" class="transition-colors hover:text-brand">Case Studies</a></li>
                         <li><a href="#about" class="transition-colors hover:text-brand">Our Process</a></li>
-                        <li><a href="#" class="transition-colors hover:text-brand">Privacy Policy</a></li>
                         <li><a href="#contact" class="transition-colors hover:text-brand">Contact</a></li>
+                        <li><a href="#" class="transition-colors hover:text-brand">Privacy Policy</a></li>
+
                     </ul>
                 </div>
 
@@ -468,11 +533,11 @@
                     <ul class="space-y-4 text-sm text-neutral">
                         <li class="flex items-start gap-3">
                             <i data-lucide="mail" class="mt-1 h-4 w-4 text-brand"></i>
-                            hello@digitara.tech
+                            rezaarinda26@gmail.com
                         </li>
                         <li class="flex items-start gap-3">
                             <i data-lucide="phone" class="mt-1 h-4 w-4 text-brand"></i>
-                            +1 (555) 012-3456
+                            +62 851-5667-5543
                         </li>
                     </ul>
                 </div>
@@ -480,7 +545,7 @@
 
             <div class="flex flex-col items-center justify-between gap-6 border-t border-brand-soft pt-10 md:flex-row">
                 <p class="text-center text-xs text-neutral md:text-left">
-                    &copy; {{ date('Y') }} Digitara Global Solutions. All rights reserved.
+                    &copy; {{ date('Y') }} Nuansa Digitara Teknologi. All rights reserved.
                     Built with Laravel.
                 </p>
                 <div class="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-neutral">
@@ -492,10 +557,24 @@
     </footer>
 
     <script>
+        // Inisialisasi ikon Lucide
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        // Jalankan saat Alpine siap
         document.addEventListener('alpine:init', () => {
-            requestAnimationFrame(() => lucide.createIcons());
+            initIcons();
         });
-        window.addEventListener('load', () => lucide.createIcons());
+
+        // Jalankan saat window load & dengan sedikit delay untuk memastikan render selesai
+        window.addEventListener('load', () => {
+            initIcons();
+            setTimeout(initIcons, 500);
+            setTimeout(initIcons, 2000); // Fail-safe
+        });
     </script>
 </body>
 
