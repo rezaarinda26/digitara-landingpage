@@ -4,6 +4,10 @@
  * Vercel Serverless Entry Point
  */
 
+// Matikan tampilan error/warning di browser agar tidak mengganggu tampilan
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+ini_set('display_errors', '0');
+
 // Initialize /tmp/storage structure required by Vercel's read-only filesystem
 $tmpStorage = '/tmp/storage';
 $tmpCache = '/tmp/bootstrap/cache';
