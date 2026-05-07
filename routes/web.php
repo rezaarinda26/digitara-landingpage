@@ -5,40 +5,40 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $services = [
         [
-            'title' => 'Enterprise Web Systems',
-            'description' => 'Robust, scalable web applications built with modern architectural patterns for high-performance business workflows.',
+            'title' => 'Company Profile & Landing Page',
+            'description' => 'Professional websites designed to represent your brand clearly while delivering a seamless and engaging user experience across all devices.',
             'icon' => 'layout',
-            'tags' => ['React', 'Node.js', 'Microservices'],
+            'tags' => ['UI/UX', 'Responsive', 'SEO', 'CMS'],
         ],
         [
-            'title' => 'Cloud Infrastructure',
-            'description' => 'Cloud-native solutions designed for maximum uptime and seamless scaling on AWS, Azure, and Google Cloud.',
+            'title' => 'Custom Web Applications',
+            'description' => 'Custom-built web systems tailored to your business processes, ensuring flexibility, scalability, and efficient operations.',
             'icon' => 'database',
-            'tags' => ['DevOps', 'Kubernetes', 'Cloud Native'],
+            'tags' => ['System', 'Dashboard', 'Access Control'],
         ],
         [
-            'title' => 'Cybersecurity Protocol',
-            'description' => 'Advanced security integration ensuring your data remains protected under the most stringent international standards.',
-            'icon' => 'shield-check',
-            'tags' => ['Security Audit', 'Encryption', 'Compliance'],
-        ],
-        [
-            'title' => 'AI Integration',
-            'description' => 'Leverage cutting-edge machine learning and predictive analytics to automate complex business processes.',
-            'icon' => 'cpu',
-            'tags' => ['LLM', 'Data Science', 'Automation'],
-        ],
-        [
-            'title' => 'API Ecosystems',
-            'description' => 'Seamlessly connect your legacy software with modern third-party services through powerful, documented APIs.',
+            'title' => 'API & System Integration',
+            'description' => 'Integrate your platform with third-party services to streamline workflows and improve overall system connectivity.',
             'icon' => 'code-2',
-            'tags' => ['REST', 'GraphQL', 'Integration'],
+            'tags' => ['API', 'Integration', 'Automation'],
+        ],
+        [
+            'title' => 'Performance & Optimization',
+            'description' => 'Enhance system speed, stability, and scalability to ensure your digital products perform efficiently under various workloads and conditions.',
+            'icon' => 'zap',
+            'tags' => ['Performance', 'Optimization', 'Scalability'],
+        ],
+        [
+            'title' => 'Maintenance & Support',
+            'description' => 'Ongoing maintenance and technical support to keep your systems secure, up-to-date, and running smoothly without operational disruptions.',
+            'icon' => 'shield-check',
+            'tags' => ['Support', 'Maintenance', 'Monitoring'],
         ],
         [
             'title' => 'Digital Strategy',
-            'description' => 'Comprehensive IT consulting specializing in long-term digital growth and technological transformation.',
-            'icon' => 'globe',
-            'tags' => ['Consulting', 'Legacy Migration', 'UX Strategy'],
+            'description' => 'Strategic planning and consultation to align technology solutions with your business goals and support long-term digital growth.',
+            'icon' => 'trending-up',
+            'tags' => ['Consulting', 'Strategy', 'Growth'],
         ],
     ];
 
